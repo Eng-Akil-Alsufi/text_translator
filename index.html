@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مترجم النصوص الاحترافي - Eng-Akil-Alsufi</title>
+  <!-- Google Fonts: Cairo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-dark shadow-sm">
+    <div class="container justify-content-center">
+      <span class="navbar-brand mb-0 h1">
+        <i class="fas fa-globe-americas"></i> مترجم النصوص
+      </span>
+    </div>
+  </nav>
+
+  <div class="container mt-5 mb-5">
+    <div class="main-card shadow-lg">
+      <div class="card-header-custom text-center">
+        <h2>
+          <i class="fas fa-language"></i> ترجمة النصوص الفورية
+        </h2>
+      </div>
+      
+      <div class="card-body-custom">
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="sourceLang">
+                <i class="fas fa-map-marker-alt"></i> اللغة المصدرية:
+              </label>
+              <select class="form-control custom-select-lg" id="sourceLang">
+                <option value="en">English - الإنجليزية</option>
+                <option value="ar" selected>العربية - Arabic</option>
+                <option value="fr">Français - الفرنسية</option>
+                <option value="de">Deutsch - الألمانية</option>
+                <option value="es">Español - الإسبانية</option>
+                <option value="it">Italiano - الإيطالية</option>
+                <option value="ru">Русский - الروسية</option>
+                <option value="zh-cn">中文(简体) - الصينية (المبسطة)</option>
+                <option value="ja">日本語 - اليابانية</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="targetLang">
+                <i class="fas fa-bullseye"></i> اللغة المستهدفة:
+              </label>
+              <select class="form-control custom-select-lg" id="targetLang">
+                <option value="en" selected>English - الإنجليزية</option>
+                <option value="ar">العربية - Arabic</option>
+                <option value="fr">Français - الفرنسية</option>
+                <option value="de">Deutsch - الألمانية</option>
+                <option value="es">Español - الإسبانية</option>
+                <option value="it">Italiano - الإيطالية</option>
+                <option value="ru">Русский - الروسية</option>
+                <option value="zh-cn">中文(简体) - الصينية (المبسطة)</option>
+                <option value="ja">日本語 - اليابانية</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="translationText">
+            <i class="fas fa-edit"></i> النص المراد ترجمته:
+          </label>
+          <textarea class="form-control custom-textarea" id="translationText" rows="5" 
+                    placeholder="اكتب النص هنا للترجمة..." dir="auto"></textarea>
+          <div class="info-tag mt-2">
+            <i class="fas fa-magic"></i> سيتم محاذاة النص تلقائياً حسب اللغة
+          </div>
+        </div>
+
+        <div class="action-buttons text-center mb-4">
+          <button id="translateButton" class="btn btn-translate" onclick="translateText()">
+            <i class="fas fa-sync-alt"></i> ترجمة النص
+          </button>
+          <button class="btn btn-clear" onclick="clearFields()">
+            <i class="fas fa-eraser"></i> مسح الحقول
+          </button>
+        </div>
+
+        <div id="alertContainer"></div>
+
+        <div class="result-container">
+          <h4 class="result-title">
+            <i class="fas fa-poll-h"></i> نتائج الترجمة:
+          </h4>
+          <div id="translationResult" class="result-display" dir="auto">
+            <div class="empty-state">
+              <i class="fas fa-ghost"></i>
+              <p>بانتظار إدخال النص للترجمة...</p>
+            </div>
+          </div>
+
+          <div class="result-footer" id="resultActions" style="display: none;">
+            <button class="btn btn-copy" onclick="copyToClipboard()">
+              <i class="fas fa-copy"></i> نسخ النتيجة
+            </button>
+            <button class="btn btn-download" onclick="downloadTranslation()">
+              <i class="fas fa-file-download"></i> تنزيل الملف
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer-custom">
+    <div class="container text-center">
+      <p>
+        <i class="fas fa-code"></i> تم التطوير بواسطة <strong>Eng-Akil-Alsufi</strong> &copy; 2025
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="js/translator.js"></script>
+</body>
+
+</html>
